@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> Event </th>
+                <th> Department Name </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${events.empty}">
+                <td colspan="2"> No Events Available </td>
+            </tr>
+            <tr th:each="event : ${events}">
+                <td><span th:text="${event.event_title}"> Title </span></td>
+                <td><span th:text="${event.department_name}"> Author </span></td>
+            </tr>
+        </tbody>
+    </table>
+    <button><a href="/create">Create Event</a></button>
+</body>
+</html>

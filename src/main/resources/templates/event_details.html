@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+</head>
+<body>
+    <form action="" th:action="@{/create}" method="POST" th:object="${events}">
+        <label>Department Name:
+            <input type="text" name="department_name">
+        </label><br><br><br>
+        <label>Applied Date:
+            <input type="date" name="applied_date">
+        </label><br><br><br>
+        <label>Event Reference No:
+            <input type="text" name="event_reference_no">
+        </label><br><br><br>
+        <label>Event Title:
+            <input type="text" name="event_title">
+        </label><br><br><br>
+        <label>Event Type:
+            <input type="text" name="event_type">
+        </label><br><br><br>
+        <label>Level:
+            <input type="text" name="level">
+        </label><br><br><br>
+        <label>No.of Days:
+            <input type="number" name="no_of_days">
+        </label><br><br><br>
+        <label>IQAC/AEGIS:
+            <input type="text" name="iqac_aegis">
+        </label><br><br><br>
+        <label>Sponsoring Agency:
+            <input type="text" name="sponsoring_agency">
+        </label><br><br><br>
+        <label>Collabrators:
+            <input type="text" name="collaborators">
+        </label><br><br><br>
+        <label>From:
+            <input type="date" name="from">
+        </label><br><br><br>
+        <label>To:
+            <input type="date" name="to">
+        </label><br><br><br>
+        <label>Venue:
+            <input type="text" name="venue">
+        </label><br><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
