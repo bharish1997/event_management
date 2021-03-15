@@ -8,13 +8,13 @@ public class Event {
     private String event_title;
     private String event_reference_no;
     private String event_type;
-    private String level;
+    private String event_level;
     private Integer no_of_days;
     private String iqac_aegis;
     private String sponsoring_agency;
     private String collaborators;
-    private Date from;
-    private Date to;
+    private Date from_date;
+    private Date to_date;
     private String venue;
 
 	public String getDepartment_name() {
@@ -28,9 +28,9 @@ public class Event {
 	public Date getApplied_date() {
 		return this.applied_date;
 	}
-
-	public void setApplied_date(Date applied_date) {
-		this.applied_date = applied_date;
+        
+    public void setApplied_date(Date applied_date) {
+            this.applied_date = applied_date;
 	}
 
 	public String getEvent_title() {
@@ -57,12 +57,12 @@ public class Event {
 		this.event_type = event_type;
 	}
 
-	public String getLevel() {
-		return this.level;
+	public String getEvent_level() {
+		return this.event_level;
 	}
 
-	public void setLevel(String level) {
-		this.level = level;
+	public void setEvent_level(String event_level) {
+		this.event_level = event_level;
 	}
 
 	public Integer getNo_of_days() {
@@ -97,20 +97,20 @@ public class Event {
 		this.collaborators = collaborators;
 	}
 
-	public Date getFrom() {
-		return this.from;
+	public Date getFrom_date() {
+		return this.from_date;
 	}
 
-	public void setFrom(Date from) {
-		this.from = from;
+	public void setFrom_date(Date from_date) {
+		this.from_date = from_date;
 	}
 
-	public Date getTo() {
-		return this.to;
+	public Date getTo_date() {
+		return this.to_date;
 	}
 
-	public void setTo(Date to) {
-		this.to = to;
+	public void setTo_date(Date to_date) {
+		this.to_date = to_date;
 	}
 
 	public String getVenue() {
@@ -120,5 +120,9 @@ public class Event {
 	public void setVenue(String venue) {
 		this.venue = venue;
 	}
+
+    boolean getParticulars() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

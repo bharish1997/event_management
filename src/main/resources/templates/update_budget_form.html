@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Budget Details</title>
+</head>
+<body>
+    <span th:each="budget : ${budgets}">
+     <form action="#" th:action="@{/update_all}"   method="POST" th:object="${budgets}">
+        <label>Particulars:
+            <input type="text"  th:value="${budget.particulars}"  name="particulars">
+        </label><br><br><br>
+        <label>Amount:
+            <input type="number" th:value="${budget.amount}" name="amount">
+        </label><br><br><br>
+        <button type="submit">Submit</button>
+    </form> 
+    </span>
+ <!--    <div class="container">
+        <form action="#" th:action="@{/update_budget}" th:each="budget : ${budgets}" method="POST" th:object="${budgets}">
+        <table id="myTable" class=" table order-list">
+        <thead>
+            <tr>
+                <td>Particular</td>
+                <td>Amount</td>
+            </tr>
+       
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td class="col-sm-4">
+                    <input type="text" name="particulars" th:value="{budget.particulars}" class="form-control"/>
+                </td>
+                <td class="col-sm-3">
+                    <input type="number" name="amount" th:value="{budget.amount}" class="form-control"/>
+                </td>
+                <td class="col-sm-2"><a class="deleteRow"></a>
+    
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: left;">
+                    <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align: left;">
+                        <button class="btn btn-lg btn-block" type="submit">Submit</button>
+                    
+                </td>
+            </tr>
+            <tr>
+            </tr>
+        </tfoot>
+    </table>
+</form>
+    </div> -->
+    <script>
+        $(document).ready(function () {
+    var counter = 0;
+
+    $("#addrow").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+        cols += '<td><input type="text" class="form-control" name="particulars' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="amount' + counter + '"/></td>';
+
+        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+        counter++;
+    });
+
+
+
+    $("table.order-list").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();       
+        counter -= 1
+    });
+
+
+
+});
+
+    </script>
+</body>
+</html>

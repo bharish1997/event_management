@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<!--To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.-->
+
+<html>
+    <head>
+        <title>Guest updation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>GUEST UPDATION</div>
+         <form action="#" th:action="@{/update_guest}"  th:each="guest : ${guests}" method="POST" th:object="${guests}">
+            <label>Category:
+                <input type="text" th:value="${guest.category}" name="category">
+            </label><br><br><br>
+            <label>Name:
+                <input type="text" th:value="${guest.name}" name="name">
+            </label><br><br><br>
+            <label>Designation:
+                <input type="text" th:value="${guest.designation}" name="designation">
+            </label><br><br><br>
+            <label>Organization:
+                <input type="text" th:value="${guest.organization}" name="organization">
+            </label><br><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    </body>
+</html>
