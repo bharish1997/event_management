@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty;
 
 import org.dom4j.dom.DOMNodeHelper.EmptyNodeList;
+import org.jfree.util.ObjectList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -101,12 +102,13 @@ public class MainController {
     }
 
     @PostMapping("/budget")
-    public RedirectView Submit_budget(@ModelAttribute("budgets") Budget budget){
-         this.Current_Budget=budget;
-         this.Current_Budget.setEvent_reference_no(this.Current_Event.getEvent_reference_no());
-         eventrepository.create_event(Current_Event);
-         guestrepository.create_guests(Current_Guest);
-         budgetrepository.create_budgets(Current_Budget);
+    public RedirectView Submit_budget(@ModelAttribute("budgetList") Budget budgets){
+        // System.out.println(budgets);
+        //  this.Current_Budget=budget;
+        //  this.Current_Budget.setEvent_reference_no(this.Current_Event.getEvent_reference_no());
+        //  eventrepository.create_event(Current_Event);
+        //  guestrepository.create_guests(Current_Guest);
+        //  budgetrepository.create_budgets(Current_Budget);
          return new RedirectView("/");
        
     }
@@ -142,9 +144,9 @@ public class MainController {
     public RedirectView update_all(@ModelAttribute("budgets") Budget budget){
          this.Current_Budget=budget;
          this.Current_Budget.setEvent_reference_no(this.Current_Event.getEvent_reference_no());
-         System.out.println(eventrepository.update_event(Current_Event));
-         System.out.println(guestrepository.update_guest(Current_Guest));
-         System.out.println(budgetrepository.update_budget(Current_Budget));
+         eventrepository.update_event(Current_Event);
+         guestrepository.update_guest(Current_Guest);
+         budgetrepository.update_budget(Current_Budget);
          return new RedirectView("/");
     }
 
