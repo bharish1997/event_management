@@ -1,16 +1,9 @@
 package event_management.event_management;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty;
-
-import org.dom4j.dom.DOMNodeHelper.EmptyNodeList;
-import org.jfree.util.ObjectList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,11 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
 import net.sf.jasperreports.engine.JRDataSource;
@@ -102,13 +93,12 @@ public class MainController {
     }
 
     @PostMapping("/budget")
-    public RedirectView Submit_budget(@ModelAttribute("budgetList") Budget budgets){
-        // System.out.println(budgets);
-        //  this.Current_Budget=budget;
-        //  this.Current_Budget.setEvent_reference_no(this.Current_Event.getEvent_reference_no());
-        //  eventrepository.create_event(Current_Event);
-        //  guestrepository.create_guests(Current_Guest);
-        //  budgetrepository.create_budgets(Current_Budget);
+    public RedirectView Submit_budget(@ModelAttribute("budgetList") Budget budget){
+         this.Current_Budget=budget;
+         this.Current_Budget.setEvent_reference_no(this.Current_Event.getEvent_reference_no());
+         eventrepository.create_event(Current_Event);
+         guestrepository.create_guests(Current_Guest);
+         budgetrepository.create_budgets(Current_Budget);
          return new RedirectView("/");
        
     }
@@ -118,6 +108,7 @@ public class MainController {
         eventrepository.delete_event(event_id);
         return new RedirectView("/");
     }
+    
     @GetMapping("/edit")
     public String update_event(@RequestParam(name="event_id") String event_id,Model model){
         model.addAttribute("events", eventrepository.findById(event_id));
@@ -154,11 +145,6 @@ public class MainController {
     public ResponseEntity<byte[]> download(@RequestParam(name="event_id") String event_id){ 
     try{ 
         String filepath= ResourceUtils.getFile("classpath:event_pdf.jrxml").getAbsolutePath();
-        
-    //   User user1=new User();
-    //   user1.setId(1);
-    //   user1.setEmail("check@gmail.com");
-    //   user1.setName("test");
 
     //   JRBeanCollectionDataSource dataSource=new JRBeanCollectionDataSource(list);
         // List<Event> event=new ArrayList<Event>();
