@@ -109,6 +109,14 @@ public class MainController {
         return new RedirectView("/");
     }
     
+    @GetMapping("/details")
+    public String details(@RequestParam(name="event_id") String event_id,Model model){
+        model.addAttribute("events", eventrepository.findById(event_id));
+        model.addAttribute("guests", guestrepository.findById(event_id));
+        model.addAttribute("budgets", budgetrepository.findById(event_id));
+        return "details";
+    }
+
     @GetMapping("/edit")
     public String update_event(@RequestParam(name="event_id") String event_id,Model model){
         model.addAttribute("events", eventrepository.findById(event_id));

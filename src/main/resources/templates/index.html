@@ -176,7 +176,7 @@ $(document).ready(function(){
                 <td><span th:text="${event.event_level}"></span></td>
                 <td><span th:text="${event.venue}"></span></td>
                         <td>
-                            <!-- <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a> -->
+                            <a th:href="@{/details(event_id=${event.event_reference_no})}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                              <a th:href="@{/edit(event_id=${event.event_reference_no})}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                              <a th:href="@{/delete(event_id=${event.event_reference_no})}"  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                             <a th:href="@{/download(event_id=${event.event_reference_no})}" class="download" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
