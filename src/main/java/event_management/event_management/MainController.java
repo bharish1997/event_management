@@ -1,10 +1,24 @@
 package event_management.event_management;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+
+import org.apache.tomcat.util.http.fileupload.FileUpload;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,8 +31,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.support.ServletContextResource;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javassist.ClassPath;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -40,6 +57,12 @@ public class MainController {
     GuestRepository guestrepository;
     @Autowired
     BudgetRepository budgetrepository;
+
+    @Autowired
+    ResourceLoader resourceLoader;
+
+    @Autowired
+    ServletContext servletContext;
 
     Event Current_Event;
     Guest Current_Guest;
@@ -99,8 +122,15 @@ public class MainController {
          eventrepository.create_event(Current_Event);
          guestrepository.create_guests(Current_Guest);
          budgetrepository.create_budgets(Current_Budget);
+         File file = new File("/home/harry/Desktop/event_management/src/main/resources/photos/"+this.Current_Event.getEvent_reference_no());
+        if (!file.exists()) {
+            if (file.mkdir()) {
+                System.out.println("Directory is created!");
+            } else {
+                System.out.println("Failed to create directory!");
+            }
+        }
          return new RedirectView("/");
-       
     }
   
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -109,6 +139,22 @@ public class MainController {
         return new RedirectView("/");
     }
     
+    @PostMapping("/details")
+    public String upload(@RequestParam(name="event_id") String event_id,Model model, @ModelAttribute("photos") MultipartFile[] files, MultipartFile imagefile) throws IOException{
+        String uploadDirectory="/home/harry/Desktop/event_management/src/main/resources/photos/"+event_id;
+        StringBuilder fileNames = new StringBuilder();
+        for(MultipartFile file: files){
+            Path fileNameAndPath=Paths.get(uploadDirectory, file.getOriginalFilename());
+            fileNames.append(file.getOriginalFilename());
+            Files.write(fileNameAndPath, file.getBytes());
+        }
+        model.addAttribute("events", eventrepository.findById(event_id));
+        model.addAttribute("guests", guestrepository.findById(event_id));
+        model.addAttribute("budgets", budgetrepository.findById(event_id));
+        // model.addAllAttributes(attributes)
+        return "details";
+    }
+
     @GetMapping("/details")
     public String details(@RequestParam(name="event_id") String event_id,Model model){
         model.addAttribute("events", eventrepository.findById(event_id));
@@ -148,6 +194,8 @@ public class MainController {
          budgetrepository.update_budget(Current_Budget);
          return new RedirectView("/");
     }
+
+    
 
     @RequestMapping("/download") 
     public ResponseEntity<byte[]> download(@RequestParam(name="event_id") String event_id){ 
