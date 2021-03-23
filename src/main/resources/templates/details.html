@@ -28,6 +28,9 @@
 </style>
 </head>
 <body>
+  <div>
+    <a href="/" type="button" class="btn btn-primary">HOME</a>
+  </div>
     <div class="accordion" id="accordionExample">
         <div class="card">
           <div class="card-header" id="headingOne">
@@ -199,15 +202,21 @@
             </span>
             <div class="row">
                 <div class="row">
+                    <!-- <img th:src="@{/photos/guru_nanak_logo.jpeg}"/>
+                    <img th:src="@{/photos/E001/leaf_banner_violet.png}"/> -->
+                    <span th:each="photo : ${photos}">
+                      <!-- <img th:src="@{${photo.location}}"> -->
                     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                           data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                           data-target="#image-gallery">
-                            <img class="img-thumbnail"
-                                 src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 alt="Another alt text">
-                        </a>
-                    </div>
+                      <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                         th:data-image="@{${photo.location}}"
+                         data-target="#image-gallery">
+                         <!-- <h1 th:text="${photo.event_reference_no}"></h1> -->
+                          <img class="img-thumbnail"
+                               th:src="@{${photo.location}}"
+                               alt="Another alt text">
+                      </a>
+                  </div>
+                </span>
                 </div>
         
         
@@ -225,7 +234,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
                                 </button>
-                                <a type="button" class="btn btn-secondary float-right">Download</a>
+                                
                                 <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
                                 </button>
                             </div>
