@@ -141,6 +141,44 @@
                     </div>
                 </div>
               </div>
+              <form action="" th:action="@{/guest_update(event_id=${events[0].event_reference_no})}"  method="POST" th:object="${guests}">
+                <table id="myTable" class=" table order-list">
+                <thead>
+                    <tr>
+                        <td>Category</td>
+                        <td>Name</td>
+                        <td>Designation</td>
+                        <td>Organization</td>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td class="col-sm-2">
+                            <input type="text" name="category" class="form-control"/>    
+                        </td>
+                        <td class="col-sm-2">
+                          <input type="text" name="name"  class="form-control"/>
+                      </td>
+                      <td class="col-sm-2">
+                        <input type="text" name="designation"  class="form-control"/>
+                    </td>
+                        <td class="col-sm-2">
+                            <input type="text" name="organization"  class="form-control"/>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: left;">
+                            <input type="submit" class="btn btn-lg btn-block "  value="Add Row" />
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
             </div>
             </div>
           </div>
@@ -154,6 +192,7 @@
             </h5>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <!--Budget Table -->
             <div class="card-body">
                 <div class="card-body">
                     <div class="card-body">
@@ -171,10 +210,12 @@
                                         <tr th:if="${budgets.empty}">
                                             <td colspan="7"> No Events Available </td>
                                         </tr>
-                                <tr th:each="budget : ${budgets}">
+                                        <span th:each="budget : ${budgets}">
+                                <tr>
                                     <td><span th:text="${budget.particulars}"> </span></td>
                                     <td><span th:text="${budget.amount}"></span></td>
                                 </tr>
+                              </span>
                                     </tbody>
                                 </table>
                             </div>
@@ -182,6 +223,41 @@
                     </div>
                   </div>
             </div>
+            <!-- Add Budget -->
+            <div class="container">
+        <form action="" th:action="@{/budget_update(event_id=${events[0].event_reference_no})}"  method="POST" th:object="${budgets}">
+        <table id="myTable" class=" table order-list">
+        <thead>
+            <tr>
+                <td>Particular</td>
+                <td>Amount</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td class="col-sm-4">
+                    <input type="text" name="particulars" class="form-control"/>
+                    
+                </td>
+                <td class="col-sm-3">
+                    <input type="number" name="amount"  class="form-control"/>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: left;">
+                    <input type="submit" class="btn btn-lg btn-block "  value="Add Row" />
+                </td>
+            </tr>
+            <tr>
+            </tr>
+        </tfoot>
+    </table>
+</form>
+    </div> 
+            
           </div>
         </div>
         <div class="card">

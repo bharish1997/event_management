@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOError;
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -206,7 +207,27 @@ public class MainController {
          return new RedirectView("/");
     }
 
-    
+    @PostMapping("/budget_update")
+    public RedirectView update_budget(@ModelAttribute("budgets") Budget budget,@RequestParam(name="event_id") String event_id, Model model){
+        budget.setEvent_reference_no(event_id);
+        budgetrepository.create_budgets(budget);
+        model.addAttribute("events", eventrepository.findById(event_id));
+        model.addAttribute("guests", guestrepository.findById(event_id));
+        model.addAttribute("budgets", budgetrepository.findById(event_id));
+        model.addAttribute("photos", photorespository.findbyid(event_id));
+        return new RedirectView("/details?event_id="+event_id);
+    }
+
+    @PostMapping("/guest_update")
+    public RedirectView update_guest(@ModelAttribute("guests") Guest guest,@RequestParam(name="event_id") String event_id, Model model){
+        guest.setEvent_reference_no(event_id);
+        guestrepository.create_guests(guest);
+        model.addAttribute("events", eventrepository.findById(event_id));
+        model.addAttribute("guests", guestrepository.findById(event_id));
+        model.addAttribute("budgets", budgetrepository.findById(event_id));
+        model.addAttribute("photos", photorespository.findbyid(event_id));
+        return new RedirectView("/details?event_id="+event_id);
+    }
 
     @RequestMapping("/download") 
     public ResponseEntity<byte[]> download(@RequestParam(name="event_id") String event_id){ 
