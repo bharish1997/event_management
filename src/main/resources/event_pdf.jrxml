@@ -1,333 +1,295 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="event_pdf" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c1769e0b-5df6-4576-a07c-2ee9347d1b20">
-	<subDataset name="Empty Dataset1" uuid="fb162188-9479-43e3-83a3-1fa34ac77d31"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="18e4d42e-fece-403a-941a-d3c141db06b7">
 	<parameter name="department_name" class="java.lang.String"/>
 	<parameter name="applied_date" class="java.sql.Date"/>
 	<parameter name="event_reference_no" class="java.lang.String"/>
-	<parameter name="event_type" class="java.lang.String"/>
 	<parameter name="event_title" class="java.lang.String"/>
-	<parameter name="iqac_aegis" class="java.lang.String"/>
-	<parameter name="sponsering_agency" class="java.lang.String"/>
-	<parameter name="level" class="java.lang.String"/>
-	<parameter name="collaborators" class="java.lang.String"/>
+	<parameter name="event_level" class="java.lang.String"/>
 	<parameter name="no_of_days" class="java.lang.Integer"/>
+	<parameter name="iqac_aegis" class="java.lang.String"/>
+	<parameter name="sponsoring_agency" class="java.lang.String"/>
+	<parameter name="collaborators" class="java.lang.String"/>
+	<parameter name="from_date" class="java.sql.Date"/>
+	<parameter name="to_date" class="java.sql.Date"/>
 	<parameter name="venue" class="java.lang.String"/>
-	<parameter name="from" class="java.sql.Date"/>
-	<parameter name="to" class="java.sql.Date"/>
+	<parameter name="event_type" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
 	<title>
-		<band height="120" splitType="Stretch">
-			<image>
-				<reportElement x="2" y="-10" width="96" height="90" uuid="e4060683-5b53-4a47-ac7c-58a57ae425bd"/>
-				<imageExpression><![CDATA["guru_nanak_logo.jpeg"]]></imageExpression>
-			</image>
+		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="110" y="0" width="441" height="30" uuid="b4e186ca-6d54-4882-ac72-1dc53d9f3a1a"/>
+				<reportElement x="80" y="0" width="420" height="28" uuid="a3e78723-667f-4575-b1ed-9944c85733eb"/>
 				<textElement>
-					<font fontName="Bitstream Charter" size="22" isBold="true"/>
+					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[GURU NANAK COLLEGE(AUTONOMOUS)                       ]]></text>
+				<text><![CDATA[GURU NANAK COLLEGE(AUTONOMOUS)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="112" y="30" width="418" height="21" forecolor="#330099" uuid="a65546bb-dafc-4001-b5b7-e6072a5e39fc"/>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<text><![CDATA[(AFFILIATED TO UNIVERSITY OF MADRAS AND RE-ACCREDITED AT 'A' GRADE BY NAAC]]></text>
+				<reportElement x="80" y="29" width="450" height="20" forecolor="#663399" uuid="084a8cee-487d-4f5d-b0a6-9fa9f97549b6"/>
+				<text><![CDATA[(AFFILIATED TO UNIVERSITY OF MADRAS AND RE-ACCREDITED AT 'A' GRADE BY NAAC)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="110" y="50" width="410" height="21" uuid="cfd730d9-c95d-4166-80ab-f457d20953f2"/>
+				<reportElement x="80" y="49" width="280" height="20" uuid="a70ec6d2-122b-42f5-93ff-8952b515be43"/>
 				<textElement>
-					<font fontName="FreeSans" size="12" isBold="true" isItalic="true"/>
+					<font size="12" isBold="true" isItalic="true"/>
 				</textElement>
-				<text><![CDATA[Guru Nanak Salai,Velachery,Chennai-600042]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="130" y="80" width="260" height="20" uuid="2158982b-b4a4-41da-a838-7dc0c61095f1"/>
-				<textElement textAlignment="Center">
-					<font fontName="FreeMono" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ACADEMIC EVENT APPROVAL FORM]]></text>
+				<text><![CDATA[Guru Nanak Salai,Velachery,Chennai]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="40" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="-10" width="191" height="20" uuid="20218e4d-de41-43b7-bbb9-0c6972773a6e"/>
-				<textElement>
-					<font fontName="Serif" size="14"/>
+				<reportElement x="110" y="0" width="349" height="19" uuid="77c9a099-3c91-4107-9405-676e9bc91fdc"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Respected Sir,]]></text>
+				<text><![CDATA[ACADEMIC EVENT APPROVAL FORM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="60" y="10" width="400" height="30" uuid="284bd474-76db-4e84-92e9-7b27cb70dc83">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
+				<reportElement x="2" y="19" width="90" height="20" uuid="97479129-f088-446f-b495-eed161ace283"/>
 				<textElement>
-					<font fontName="Serif" size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[We are planning to organize the following event.Kindly approve.]]></text>
+				<text><![CDATA[Respected Sir,]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="121" splitType="Stretch">
+		<band height="500" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="550" height="20" backcolor="#00CCFF" uuid="2313dd82-9db5-4b62-b530-674a46a7d34d">
+				<reportElement mode="Opaque" x="2" y="20" width="550" height="20" backcolor="#00CCFF" uuid="270b1e53-460b-4e2c-a8a4-03c24c3d6e11">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="16" isBold="true"/>
+					<font fontName="Serif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[APPLICATION DETAILS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="20" width="140" height="20" uuid="51e87262-055a-4e2e-b918-247d57e05776"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Department Name]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="49" width="140" height="20" uuid="cf23938a-d1ff-4e75-bc20-128950249f8b"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Applied Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="2" y="69" width="550" height="20" backcolor="#00CCFF" uuid="443618c6-d1b2-450a-9428-d0bf63a2b940">
+				<reportElement mode="Opaque" x="0" y="100" width="550" height="20" backcolor="#00CCFF" uuid="1d6a77d9-03d9-4673-bf6d-083efdb06b46">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="16" isBold="true"/>
+					<font fontName="Serif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[EVENT DETAILS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="95" width="98" height="20" uuid="7fb0b591-c576-4ee5-bc6d-c1f26dee285a"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Event Title]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="91" y="94" width="252" height="19" uuid="67a07a26-afb1-4edd-a494-246c07134297"/>
-				<textFieldExpression><![CDATA[$P{event_title}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="124" y="22" width="234" height="19" uuid="10e11802-0b89-4994-ae35-2b5e971e2ad9"/>
-				<textFieldExpression><![CDATA[$P{department_name}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="97" y="50" width="100" height="14" uuid="7acb9d87-2455-468b-baf6-eb9fbf75ead4"/>
-				<textFieldExpression><![CDATA[$P{applied_date}]]></textFieldExpression>
-			</textField>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="200">
-			<staticText>
-				<reportElement x="9" y="5" width="140" height="20" uuid="c00108d9-bfed-4b68-8424-439e7c86949f"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Event Reference No]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="12" y="178" width="140" height="20" uuid="538f227b-1315-40e7-be11-5199dc0dd6ee"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="8" y="60" width="140" height="20" uuid="64bde3e6-eeed-468b-beb1-f80a55e85a0d"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Level]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="8" y="90" width="140" height="20" uuid="9f98d487-66a0-41c2-9ef9-398f5d23049e"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[IQAC/AEGIS]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="10" y="130" width="140" height="20" uuid="1dd5ec5e-1f4a-462d-aa53-cd7a6c6eb46e"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Collaborators]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="288" y="115" width="102" height="20" uuid="525ba663-d7e2-4c90-8feb-de5ca68e0731"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Venue]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="288" y="85" width="140" height="20" uuid="abed73ad-8e93-44ff-ba83-cdf70b2e7230"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[No.of.Days]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="160" y="178" width="70" height="20" uuid="7168e2ff-75df-4cf7-a069-a515004469b4"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[From]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="380" y="180" width="40" height="20" uuid="56c91f53-2433-4a03-8bcb-e356cdca47d2"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[To]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="288" y="50" width="170" height="20" uuid="484e29ae-2b2c-4d26-975e-af1658e52fd2"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Sponsering Agency(If Any)]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="8" y="33" width="140" height="20" uuid="e52238c3-e155-4f4f-850a-cd023f922d71"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Event Type]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="407" y="180" width="100" height="18" uuid="0d593763-c7e5-441e-8dc8-ccb7c24ddff0"/>
-				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="200" y="179" width="100" height="19" uuid="194dca92-4e75-4cd2-abc9-2623c82906e8"/>
-				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="145" y="6" width="143" height="18" uuid="c1cda5c1-16c1-4977-a55f-0363d39b2ab8"/>
-				<textFieldExpression><![CDATA[$P{event_reference_no}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="87" y="35" width="100" height="14" uuid="c077439f-3213-45f6-acfa-f57cb7836e03"/>
-				<textFieldExpression><![CDATA[$P{event_type}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="50" y="61" width="100" height="18" uuid="0f4afb6a-775a-4523-87eb-673e8da8b995"/>
-				<textFieldExpression><![CDATA[$P{level}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="91" width="100" height="20" uuid="055e7c29-d38b-42c6-b3f9-0e090cf6dbea"/>
-				<textFieldExpression><![CDATA[$P{iqac_aegis}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="460" y="51" width="100" height="30" uuid="4e790664-f04a-492e-9164-43a0f9d9d26c"/>
-				<textFieldExpression><![CDATA[$P{sponsering_agency}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="363" y="87" width="100" height="18" uuid="877f9452-a12c-4fad-805c-6d3432deb1ee"/>
-				<textFieldExpression><![CDATA[$P{no_of_days}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="336" y="116" width="196" height="34" uuid="ebaec2ad-64d2-4a6a-92d2-65cf40cb29a2"/>
-				<textFieldExpression><![CDATA[$P{venue}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="100" y="132" width="100" height="14" uuid="965658b0-505e-45f9-8e5a-4fa08d0c307c"/>
-				<textFieldExpression><![CDATA[$P{level}]]></textFieldExpression>
-			</textField>
-		</band>
-	</detail>
-	<columnFooter>
-		<band height="228" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="130" width="98" height="20" uuid="ecb61b90-33fc-4dbe-b45a-67de41f87f58"/>
-				<textElement>
-					<font fontName="Serif" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Note:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="22" y="160" width="510" height="60" uuid="8d9a4c65-1fc4-495a-94ea-da53ebc819fa"/>
-				<textElement>
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Kindly update all the details in your department login after the completion of the event (Within a week). Failing to upload any documents may not allow you to proceed next event]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="2" y="10" width="550" height="20" backcolor="#00CCFF" uuid="a0b6f7c8-2683-4e1c-b508-e14023769c8f">
+				<reportElement mode="Opaque" x="2" y="340" width="550" height="20" backcolor="#00CCFF" uuid="0d4dc3ad-df0d-449c-aea3-c0e87bc53a46">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="16" isBold="true"/>
+					<font fontName="Serif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[BUDGET DETAILS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="60" width="110" height="20" uuid="931f88ac-1fa6-4b31-859c-09bf79b009ec"/>
+				<reportElement x="40" y="0" width="440" height="20" uuid="640889f1-5506-478a-83bb-c91ae4d3776d"/>
 				<textElement>
-					<font fontName="Serif" size="12"/>
+					<font size="12"/>
 				</textElement>
+				<text><![CDATA[We are planning to organize the following event,Kindly approve]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="124" height="20" uuid="bcf98376-039e-4401-adc3-cc444ecc6a09"/>
+				<text><![CDATA[DEPARTMENT NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="80" width="125" height="20" uuid="f70df85f-c68d-4ca1-a3f2-e11424629fc7"/>
+				<text><![CDATA[APLLIED DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="140" height="20" uuid="49929bbb-dd31-43cb-a890-095c5b1de045"/>
+				<text><![CDATA[EVENT REFERENCE NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="230" width="140" height="20" uuid="134459cc-f157-4761-96d8-fcc3099ff818"/>
+				<text><![CDATA[EVENT TITLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="120" width="110" height="20" uuid="e3b04706-a146-4ed4-8ae3-8b483b16391a"/>
+				<text><![CDATA[EVENT TYPE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="140" height="20" uuid="47c5fc62-f049-4e19-aa4f-21ca8369b646"/>
+				<text><![CDATA[EVENT TITLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="170" width="120" height="20" uuid="c6d880b7-a3e8-4db6-b2b3-db1feff60c4b"/>
+				<text><![CDATA[LEVEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="140" height="20" uuid="6ac67934-6b6c-468d-b506-e5a263eda238"/>
+				<text><![CDATA[IQAC/AEGIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="150" width="110" height="20" uuid="7a6e03ef-4db8-47bf-861d-5b32aa7cb7c6"/>
+				<text><![CDATA[No.Of.Days]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="260" width="140" height="20" uuid="5ce03795-4889-4912-8116-2af1bf68d313"/>
+				<text><![CDATA[Collaborators]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="180" width="130" height="20" uuid="3191d3f3-0f7f-401e-9c95-fb644f09d3ad"/>
+				<text><![CDATA[Sponsoring Agency(if Any)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="270" width="140" height="20" uuid="cea06423-1ada-4021-a2dd-d4c3f14d5ab5"/>
+				<text><![CDATA[Name of the Venue Required]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="290" width="140" height="20" uuid="7bced604-99a2-4c8a-812d-1c789a7b8d50"/>
+				<text><![CDATA[Name of the Sponsoring Agency]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="320" width="140" height="20" uuid="402fddd7-1689-4312-84ee-381aa65b82e6"/>
+				<text><![CDATA[Name of the  Collaborators]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="210" width="60" height="20" uuid="ad05261a-62dc-4951-845f-cc5584864354"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="230" width="50" height="20" uuid="7cabd17c-f802-4c3b-a1ee-e794461e9622"/>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="250" width="30" height="20" uuid="5a62c880-2f7d-4670-8360-c245e17b118e"/>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="370" width="124" height="19" uuid="d1b34a7d-f74d-4fb1-a5ac-d70403d2929e"/>
 				<text><![CDATA[Proposed Budget]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="270" y="60" width="150" height="20" uuid="3aa7af35-2379-4b9e-9658-696cace5fb90"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[Sponsorship Amount:]]></text>
+				<reportElement x="300" y="370" width="124" height="19" uuid="b2dbc80e-5a8e-41e1-921c-ee2dbd4a48ec"/>
+				<text><![CDATA[Sponsorship Amount]]></text>
 			</staticText>
-		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="90" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="20" width="140" height="20" uuid="57ce9d34-6f2c-4e96-bc48-678735a60a07"/>
+				<reportElement x="2" y="419" width="47" height="20" uuid="a8932cef-ca74-4112-a3a6-53bf8f367c99"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="439" width="524" height="46" uuid="32222167-52f9-4037-9e80-e660e713b15f"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kindly update all the details in your department login after the completion of the event (Within a week). Failing to upload any documents may not allow you to proceed next event]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="290" width="200" height="48" uuid="d75573d7-f153-4b2a-811c-55fe370f9ea1"/>
+				<textFieldExpression><![CDATA[$P{venue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="45" width="176" height="25" uuid="00aa8d1a-a478-412c-b09e-e970ba8a2592"/>
+				<textFieldExpression><![CDATA[$P{department_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="80" width="200" height="20" uuid="169cf3da-6e18-4560-8098-509e94d73685"/>
+				<textFieldExpression><![CDATA[$P{applied_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="140" width="120" height="20" uuid="247ce9d5-734f-4c1c-8045-54de2b916d16"/>
+				<textFieldExpression><![CDATA[$P{event_reference_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="120" width="100" height="20" uuid="19b07e1e-6a8f-4182-8617-e64f3d3467a9"/>
+				<textFieldExpression><![CDATA[$P{event_title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="170" width="100" height="20" uuid="cdd8df9d-8a12-4907-afb2-94404931d55e"/>
+				<textFieldExpression><![CDATA[$P{event_level}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="230" width="120" height="20" uuid="447a7bf2-30ae-4ccb-b3db-9f4f8b3a1990"/>
+				<textFieldExpression><![CDATA[$P{from_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="249" width="126" height="22" uuid="ff9261a8-c35a-4716-961c-4316ef89ca91"/>
+				<textFieldExpression><![CDATA[$P{to_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="180" width="100" height="30" uuid="7e0c5047-e936-48c9-9b5d-f26503295820"/>
+				<textFieldExpression><![CDATA[$P{sponsoring_agency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="150" width="100" height="20" uuid="13205ef3-b8d6-4cc2-801b-7d02faa7da6a"/>
+				<textFieldExpression><![CDATA[$P{no_of_days}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="200" width="110" height="20" uuid="74739180-8b41-4fcb-b6e3-5734eb6c3127"/>
+				<textFieldExpression><![CDATA[$P{iqac_aegis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="230" width="100" height="17" uuid="7c102f5a-7942-4a8a-baf9-e784ac0d23a8"/>
+				<textFieldExpression><![CDATA[$P{event_title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="260" width="100" height="20" uuid="bb09451f-00b0-4561-b35b-957da3597abc"/>
+				<textFieldExpression><![CDATA[$P{collaborators}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="120" width="90" height="30" uuid="0ea674cd-41e1-4087-bc76-8074bfb6998e"/>
+				<textFieldExpression><![CDATA[$P{event_type}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="2" splitType="Immediate">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="81" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="2" y="0" width="75" height="20" uuid="22ccfe1f-22bc-4127-8f7b-c358cc4471bb"/>
 				<textElement>
 					<font fontName="Serif" size="12"/>
 				</textElement>
 				<text><![CDATA[HOD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="210" y="20" width="140" height="20" uuid="1bc1e3e5-a749-402a-97d0-6f521df91df8"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[DEAN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="410" y="20" width="140" height="20" uuid="c40d8df0-56a8-4b0e-afe8-fcf0e75904a3"/>
-				<textElement>
-					<font fontName="Serif" size="12"/>
-				</textElement>
-				<text><![CDATA[VICE PRINCIPAL]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="120" y="60" width="140" height="20" uuid="81a2c1c9-631c-4b21-bc98-bfe6a0e12ea1"/>
+				<reportElement x="430" y="0" width="80" height="20" uuid="76c3b46f-c2cc-438c-b2ed-fb0b2c0c4a89"/>
 				<textElement>
 					<font fontName="Serif" size="12"/>
 				</textElement>
 				<text><![CDATA[PRINCIPAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="340" y="54" width="140" height="20" uuid="3e7205bd-0cf9-4706-a350-341df0c716e3"/>
+				<reportElement x="190" y="10" width="80" height="20" uuid="39cd3a7c-d2cc-4009-88c6-9bf355c9bfe9"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[DEAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="40" width="135" height="20" uuid="dfb662b6-8142-4c48-99e0-2df88da74191"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[VICE PRINCIPAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="31" width="140" height="20" uuid="a1ad9df6-60d2-40be-a3ba-2a0f59aa4179"/>
 				<textElement>
 					<font fontName="Serif" size="12"/>
 				</textElement>
 				<text><![CDATA[GENERAL SECRETARY]]></text>
 			</staticText>
 		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 </jasperReport>

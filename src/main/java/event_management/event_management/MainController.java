@@ -233,11 +233,7 @@ public class MainController {
     public ResponseEntity<byte[]> download(@RequestParam(name="event_id") String event_id){ 
     try{ 
         String filepath= ResourceUtils.getFile("classpath:event_pdf.jrxml").getAbsolutePath();
-
-    //   JRBeanCollectionDataSource dataSource=new JRBeanCollectionDataSource(list);
-        // List<Event> event=new ArrayList<Event>();
-        // event.addAll(eventrepository.findAll());
-        // System.out.println();
+      
         List<Event> events= new ArrayList<Event>(eventrepository.findById(event_id));
         for (Event event : events) {
             this.Current_Event=event;
