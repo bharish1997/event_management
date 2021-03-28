@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="budget" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d811cd9f-5979-4efc-9420-83498720dcff">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="budgets" uuid="de2b0f26-c9dd-4f94-92b5-b43c42865cd6">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="particulars" class="java.lang.String"/>
+		<field name="amount" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="budgetlist" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="420" height="28" uuid="a3e78723-667f-4575-b1ed-9944c85733eb"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GURU NANAK COLLEGE(AUTONOMOUS)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="29" width="450" height="20" forecolor="#663399" uuid="084a8cee-487d-4f5d-b0a6-9fa9f97549b6"/>
+				<text><![CDATA[(AFFILIATED TO UNIVERSITY OF MADRAS AND RE-ACCREDITED AT 'A' GRADE BY NAAC)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="49" width="280" height="20" uuid="a70ec6d2-122b-42f5-93ff-8952b515be43"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Guru Nanak Salai,Velachery,Chennai]]></text>
+			</staticText>
+			<image>
+				<reportElement x="9" y="0" width="63" height="60" uuid="694f7d2d-5d6f-47ed-9c1f-aa137fb1e191"/>
+				<imageExpression><![CDATA["logo_guru.jpeg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="10" width="550" height="20" backcolor="#00CCFF" uuid="43f967f7-caec-4570-ba43-88478385e62e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BUDGET DETAILS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="178" splitType="Stretch">
+			<componentElement>
+				<reportElement x="30" y="10" width="480" height="120" uuid="a8565d7b-d92e-48d5-a8ec-6b2c0ea6d797">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="budgets" uuid="c3e9cee5-6143-4238-ad4d-9a1fd9b5e1fc">
+						<dataSourceExpression><![CDATA[$P{budgetlist}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="360" uuid="d3845b1a-1b17-455b-80b7-68864fefd40c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="360" height="30" uuid="f0763996-541e-4c5e-8638-bb55a91f19d0"/>
+								<textElement textAlignment="Center">
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Particulars]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="360" height="30" uuid="6bf3c272-e0f5-4429-9dd5-248c6dbc8427"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{particulars}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="83f00698-f396-436d-979c-9b828faf10f4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="8ad95038-bd6d-4225-bf1f-3249897a8770"/>
+								<textElement textAlignment="Center">
+									<font size="18"/>
+								</textElement>
+								<text><![CDATA[Amount]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="30" uuid="2939e186-f74f-4feb-a971-adb79525132a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="60" width="524" height="46" uuid="e1ba5259-f65d-4936-afda-993fe5b23e2f"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kindly update all the details in your department login after the completion of the event (Within a week). Failing to upload any documents may not allow you to proceed next event]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="20" width="47" height="20" uuid="7451a1e7-cb0a-42f3-9bcc-a5e229469683"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Note]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="81" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="2" y="0" width="75" height="20" uuid="22ccfe1f-22bc-4127-8f7b-c358cc4471bb"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[HOD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="80" height="20" uuid="76c3b46f-c2cc-438c-b2ed-fb0b2c0c4a89"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[PRINCIPAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="10" width="80" height="20" uuid="39cd3a7c-d2cc-4009-88c6-9bf355c9bfe9"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[DEAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="40" width="135" height="20" uuid="dfb662b6-8142-4c48-99e0-2df88da74191"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[VICE PRINCIPAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="31" width="140" height="20" uuid="a1ad9df6-60d2-40be-a3ba-2a0f59aa4179"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<text><![CDATA[GENERAL SECRETARY]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -21,7 +21,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="84" splitType="Stretch">
 			<staticText>
 				<reportElement x="80" y="0" width="420" height="28" uuid="a3e78723-667f-4575-b1ed-9944c85733eb"/>
 				<textElement>
@@ -40,6 +40,10 @@
 				</textElement>
 				<text><![CDATA[Guru Nanak Salai,Velachery,Chennai]]></text>
 			</staticText>
+			<image>
+				<reportElement x="9" y="0" width="63" height="60" uuid="694f7d2d-5d6f-47ed-9c1f-aa137fb1e191"/>
+				<imageExpression><![CDATA["logo_guru.jpeg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

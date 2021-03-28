@@ -264,7 +264,7 @@ public class MainController {
 
       headers.setContentType(MediaType.APPLICATION_PDF);
 
-      headers.setContentDispositionFormData("filename", "report.pdf");
+      headers.setContentDispositionFormData("filename", "Event Report.pdf");
 
       return new ResponseEntity<byte[]>(byteArray, headers, HttpStatus.OK);
 
@@ -275,5 +275,71 @@ public class MainController {
     }
   }
     
-    
+  @RequestMapping("/budget_list")
+  public ResponseEntity<byte[]> budget_list(@RequestParam(name="event_id") String event_id){ 
+    try{ 
+        String filepath= ResourceUtils.getFile("classpath:budget_pdf.jrxml").getAbsolutePath();
+        List<Budget> budgets= new ArrayList<Budget>();
+        
+        budgets.addAll(budgetrepository.findById(event_id));
+
+      JRBeanCollectionDataSource dataSource=new JRBeanCollectionDataSource(budgets);
+      Map<String, Object> parameter = new HashMap<String, Object>();
+      
+      parameter.put("budgetlist",dataSource);
+        
+      JasperReport report = JasperCompileManager.compileReport(filepath);
+      System.out.println("inside");
+      JasperPrint print= JasperFillManager.fillReport(report, parameter, new JREmptyDataSource());
+      System.out.println("out");
+      byte[] byteArray= JasperExportManager.exportReportToPdf(print);
+
+      HttpHeaders headers = new HttpHeaders();
+
+      headers.setContentType(MediaType.APPLICATION_PDF);
+
+      headers.setContentDispositionFormData("filename", "report.pdf");
+
+      return new ResponseEntity<byte[]>(byteArray, headers, HttpStatus.OK);
+
+    }
+    catch(Exception e){
+        System.out.println("Exception while creating report");
+        return new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @RequestMapping("/guest_list")
+  public ResponseEntity<byte[]> guest_list(@RequestParam(name="event_id") String event_id){ 
+    try{ 
+        String filepath= ResourceUtils.getFile("classpath:guest_pdf.jrxml").getAbsolutePath();
+        List<Guest> guests= new ArrayList<Guest>();
+        
+        guests.addAll(guestrepository.findById(event_id));
+
+      JRBeanCollectionDataSource dataSource=new JRBeanCollectionDataSource(guests);
+      Map<String, Object> parameter = new HashMap<String, Object>();
+      
+      parameter.put("guestlist",dataSource);
+        
+      JasperReport report = JasperCompileManager.compileReport(filepath);
+      System.out.println("inside");
+      JasperPrint print= JasperFillManager.fillReport(report, parameter, new JREmptyDataSource());
+      System.out.println("out");
+      byte[] byteArray= JasperExportManager.exportReportToPdf(print);
+
+      HttpHeaders headers = new HttpHeaders();
+
+      headers.setContentType(MediaType.APPLICATION_PDF);
+
+      headers.setContentDispositionFormData("filename", "Guest Report.pdf");
+
+      return new ResponseEntity<byte[]>(byteArray, headers, HttpStatus.OK);
+
+    }
+    catch(Exception e){
+        System.out.println("Exception while creating report");
+        return new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
 }
