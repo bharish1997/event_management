@@ -131,7 +131,7 @@ public class MainController {
          eventrepository.create_event(Current_Event);
          guestrepository.create_guests(Current_Guest);
          budgetrepository.create_budgets(Current_Budget);
-         File file = new File("/home/harry/Desktop/event_management/src/main/resources/static/photos/"+this.Current_Event.getEvent_reference_no());
+         File file = new File("C:/event_management/src/main/resources/static/photos/"+this.Current_Event.getEvent_reference_no());
         if (!file.exists()) {
             if (file.mkdir()) {
                 System.out.println("Directory is created!");
@@ -150,7 +150,7 @@ public class MainController {
 
     @PostMapping("/details")
     public String upload(@RequestParam(name="event_id") String event_id,Model model, @ModelAttribute("photos") MultipartFile[] files, MultipartFile imagefile) throws IOException{
-        String uploadDirectory = "/home/harry/Desktop/event_management/src/main/resources/static/photos/" + event_id+ "/";
+        String uploadDirectory = "C:/event_management/src/main/resources/static/photos/" + event_id+ "/";
         StringBuilder fileNames = new StringBuilder();
         for(MultipartFile file: files){
             Path fileNameAndPath=Paths.get(uploadDirectory, file.getOriginalFilename());
