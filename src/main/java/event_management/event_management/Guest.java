@@ -6,6 +6,7 @@ public class Guest {
     private String name;
     private String designation;
     private String organization;
+    private String about;
 
     public String getEvent_reference_no() {
         return this.event_reference_no;
@@ -47,4 +48,12 @@ public class Guest {
         this.organization = organization;
     }
 
+    public String getAbout() {
+		return this.about;
+	}
+
+	public void setAbout(String about) {
+		this.about = about;
+	}
+    
 }

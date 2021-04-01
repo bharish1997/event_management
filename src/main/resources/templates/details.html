@@ -122,7 +122,7 @@
                                         <th>Name</th>
                                         <th>Designation</th>
                                         <th>Organization</th>
-                                        
+                                        <th>About</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -134,6 +134,7 @@
                                 <td><span th:text="${guest.name}"></span></td>
                                 <td><span th:text="${guest.designation}"></span></td>
                                 <td><span th:text="${guest.organization}"></span></td>
+                                <td><span th:text="${guest.about}"></span></td>
                             </tr>
                                 </tbody>
                             </table>
@@ -150,9 +151,9 @@
                         <td>Name</td>
                         <td>Designation</td>
                         <td>Organization</td>
+                        <td>About</td>
                     </tr>
                 </thead>
-                
                 <tbody>
                     <tr>
                         <td class="col-sm-2">
@@ -167,6 +168,9 @@
                         <td class="col-sm-2">
                             <input type="text" name="organization"  class="form-control"/>
                         </td>
+                        <td class="col-sm-2">
+                          <textarea type="text" name="about" maxlength="500" cols="50" class="form-control"/></textarea>
+                      </td>
                     </tr>
                 </tbody>
                 <tfoot>

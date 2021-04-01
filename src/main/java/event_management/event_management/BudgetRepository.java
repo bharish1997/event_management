@@ -25,8 +25,8 @@ public class BudgetRepository {
 
      public int update_budget(Budget budget)
     {
-        return jdbc.update("UPDATE budgets set particulars=?,amount=?  where event_reference_no=?;",
-                     new Object[]{budget.getParticulars(),budget.getAmount(),budget.getEvent_reference_no()
+        return jdbc.update("UPDATE budgets set particulars=?,amount=?  where event_reference_no=? and particulars=?;",
+                     new Object[]{budget.getParticulars(),budget.getAmount(),budget.getEvent_reference_no(),budget.getParticulars()
                   });
     }
 }

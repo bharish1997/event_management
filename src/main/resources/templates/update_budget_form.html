@@ -11,7 +11,7 @@
 </head>
 <body>
     <span th:each="budget : ${budgets}">
-     <form action="#" th:action="@{/update_all}"   method="POST" th:object="${budgets}">
+     <form action="#" th:action="@{/update_all}" th:each="budget : ${budgets}"  method="POST" th:object="${budgets}">
         <label>Particulars:
             <input type="text"  th:value="${budget.particulars}"  name="particulars">
         </label><br><br><br>

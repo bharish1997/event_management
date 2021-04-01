@@ -25,6 +25,9 @@ and open the template in the editor.-->
             <label>Organization:
                 <input type="text" th:value="${guest.organization}" name="organization">
             </label><br><br><br>
+            <label>About:
+                <textarea th:text="${guest.about}" name="about" maxlength="500" cols="50"></textarea>
+            </label><br><br><br>
         <button type="submit">Submit</button>
     </form>
     </body>
