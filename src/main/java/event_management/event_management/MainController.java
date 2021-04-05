@@ -37,7 +37,8 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-
+import java.text.SimpleDateFormat; 
+import java.text.DateFormat;   
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -330,4 +331,74 @@ public class MainController {
         return new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
+
+  @PostMapping("/create_invitation")
+  public ResponseEntity<byte[]>  create_invitation(@ModelAttribute("invitations") Invitation invitation,@RequestParam(name="department_name") String department_name,@RequestParam(name="venue") String venue,@RequestParam(name="event_title") String event_title,@RequestParam(name="from_date") String from_date,@RequestParam(name="event_id") String event_id,Model model){
+        List<Guest> guest= new ArrayList<Guest>(guestrepository.find_by_guest_name(event_id,invitation.getName()));
+        for(Guest g:guest)
+        {
+            this.Current_Guest=g;
+        }
+
+        try{ 
+            DateFormat from_format = new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat to_format = new SimpleDateFormat("d MMM, yyyy");
+            String converted_date=to_format.format(from_format.parse(from_date));
+
+            
+            DateFormat from_time_format=new SimpleDateFormat("HH:mm");
+            DateFormat to_time_format=new SimpleDateFormat("hh:mm a");
+            String converted_time=to_time_format.format(from_time_format.parse(invitation.getTime()));
+
+            String filepath= ResourceUtils.getFile("classpath:invitation.jrxml").getAbsolutePath();
+            JRDataSource dataSource= new JREmptyDataSource();
+            Map<String, Object> parameter = new HashMap<String, Object>();
+
+            String uploadDirectory = "C:/event_management/src/main/resources/static/photos";
+            MultipartFile file=invitation.getCheif_guest_image();
+            StringBuilder fileNames = new StringBuilder();
+
+            Path fileNameAndPath=Paths.get(uploadDirectory, invitation.getCheif_guest_image().getOriginalFilename());
+            fileNames.append(file.getOriginalFilename());
+            Files.write(fileNameAndPath, file.getBytes());
+
+            
+            String filename = invitation.getCheif_guest_image().getOriginalFilename();
+            String displayimage="C:/event_management/src/main/resources/static/photos/"+filename;
+            parameter.put("department_name",department_name);
+            parameter.put("event_name",event_title);
+            parameter.put("guest_name",invitation.getName());
+            parameter.put("event_name",event_title);
+            parameter.put("designation",this.Current_Guest.getDesignation());
+            parameter.put("organization",this.Current_Guest.getOrganization());
+            parameter.put("date",converted_date);
+            parameter.put("time",converted_time);
+            parameter.put("venue",venue);
+            parameter.put("photo",displayimage);
+
+          JasperReport report = JasperCompileManager.compileReport(filepath);
+    
+          JasperPrint print= JasperFillManager.fillReport(report, parameter, dataSource);
+
+          byte[] byteArray= JasperExportManager.exportReportToPdf(print);
+    
+          HttpHeaders headers = new HttpHeaders();
+    
+          headers.setContentType(MediaType.APPLICATION_PDF);
+    
+          headers.setContentDispositionFormData("filename", "invitation.pdf");
+
+          File f=new File(displayimage);
+          f.delete();
+    
+          return new ResponseEntity<byte[]>(byteArray, headers, HttpStatus.OK);
+    
+        }
+        catch(Exception e){
+            System.out.println("Exception while creating report");
+            return new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+  }
+
+
 }

@@ -13,9 +13,9 @@ public class GuestRepository {
     JdbcTemplate jdbc;
 
     public int create_guests(Guest guest){
-        return jdbc.update("INSERT INTO guests VALUES(?,?,?,?,?,?)",
+        return jdbc.update("INSERT INTO guests VALUES(?,?,?,?,?)",
             new Object[]{guest.getEvent_reference_no(),guest.getCategory(),guest.getName(),
-                guest.getDesignation(),guest.getOrganization(),guest.getAbout()});
+                guest.getDesignation(),guest.getOrganization()});
     }
     public List<Guest> findById(String id){
         return jdbc.query("select * from guests where event_reference_no=?", 
@@ -24,9 +24,15 @@ public class GuestRepository {
     }
      public int update_guest(Guest guest)
     {
-        return jdbc.update("UPDATE guests set category=?, name=?, designation=?, organization=?, about=? where event_reference_no=? and name=?;",
+        return jdbc.update("UPDATE guests set category=?, name=?, designation=?, organization=? where event_reference_no=?;",
                      new Object[]{guest.getCategory(),guest.getName(),
-                    guest.getDesignation(),guest.getOrganization(),guest.getAbout(),guest.getEvent_reference_no(),guest.getName()});
+                    guest.getDesignation(),guest.getOrganization(),guest.getEvent_reference_no()});
 
+    }
+    public List<Guest> find_by_guest_name(String event_id,String name)
+    {
+        return jdbc.query("select * from guests where event_reference_no=? AND name=?",
+                                                    new Object[]{event_id,name},
+                                                    new BeanPropertyRowMapper<Guest>(Guest.class));
     }
   }
