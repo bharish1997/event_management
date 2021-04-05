@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-
-<!--To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.-->
-
 <html>
     <head>
-        <title>Guest updation</title>
+        <title>Guest update</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div>GUEST UPDATION</div>
-         <form action="#" th:action="@{/update_guest}"  th:each="guest : ${guests}" method="POST" th:object="${guests}">
-            <label>Category:
-                <input type="text" th:value="${guest.category}" name="category">
-            </label><br><br><br>
-            <label>Name:
-                <input type="text" th:value="${guest.name}" name="name">
-            </label><br><br><br>
-            <label>Designation:
-                <input type="text" th:value="${guest.designation}" name="designation">
-            </label><br><br><br>
-            <label>Organization:
-                <input type="text" th:value="${guest.organization}" name="organization">
-            </label><br><br><br>
-            <label>About:
-                <textarea th:text="${guest.about}" name="about" maxlength="500" cols="50"></textarea>
-            </label><br><br><br>
-        <button type="submit">Submit</button>
+        <div class="container" style="text-align: center;">
+            <img src="https://gurunanakcollege.edu.in/uploads/logo/1569478481.png" class="img-fluid" alt="Responsive image">
+            <h3><b>Update Guest</b></h3>
+        </div>
+         <form action="#" th:action="@{/update_guest}"  th:each="guest : ${guests}" method="POST" th:object="${guests}" class="container">
+            <br><br>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Category</label>
+                <input class="form-control" type="text" th:value="${guest.category}" name="category">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Guest Name</label>
+                <input class="form-control" type="text" th:value="${guest.name}" name="name">
+              </div> 
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Designation</label>
+                <input class="form-control" type="text" th:value="${guest.designation}" name="designation">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Organization</label>
+                <input class="form-control" type="text" th:value="${guest.organization}" name="organization">
+              </div> 
+              <div class="form-group">
+                <label for="exampleFormControlInput1">About</label>
+                <textarea class="form-control" th:text="${guest.about}" name="about" maxlength="500" cols="50"></textarea>
+              </div> 
+              <button type="submit" class="btn btn-primary">Submit</button>    
     </form>
     </body>
 </html>

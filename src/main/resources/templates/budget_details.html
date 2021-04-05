@@ -10,85 +10,22 @@
     <title>Budget Details</title>
 </head>
 <body>
-    <form action="" th:action="@{/budget}" method="POST" th:object="${budgets}">
-        <label>Particulars:
-            <input type="text" name="particulars">
-        </label><br><br><br>
-        <label>Amount:
-            <input type="number" name="amount">
-        </label><br><br><br>
-        <button type="submit">Submit</button>
-    </form>
-    <!-- <div class="container">
-        <form action="" th:action="@{/budget}" method="POST" th:object="${budgets}">
-        <table id="myTable" class=" table order-list">
-        <thead>
-            <tr>
-                <td>Particular</td>
-                <td>Amount</td>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <tr th:each="budget,stat : ${budgets}" >
-                <td class="col-sm-4">
-                    <input type="text" name="budget.particulars"  class="form-control"/>
-                </td>
-                <td class="col-sm-3">
-                    <input type="number" name="budget.amount"  class="form-control"/>
-                </td>
-                <td class="col-sm-2"><a class="deleteRow"></a>
+    <div class="container" style="text-align: center;">
+        <img src="https://gurunanakcollege.edu.in/uploads/logo/1569478481.png" class="img-fluid" alt="Responsive image">
+        <h3> <b>Create Budget</b></h3>
+      </div>
+    <form action="" th:action="@{/budget}" method="POST" th:object="${budgets}" class="container">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Particulars</label>
+            <input type="text" class="form-control" name="particulars">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Amount</label>
+            <input type="text" class="form-control" name="amount">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>    
+        </form>
     
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4" style="text-align: left;">
-                    <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5" style="text-align: left;">
-                        <button class="btn btn-lg btn-block" type="submit">Submit</button>
-                    
-                </td>
-            </tr>
-            <tr>
-            </tr>
-        </tfoot>
-    </table>
-</form>
-    </div> 
-
-    <script>
-        $(document).ready(function () {
-    var counter = 0;
-
-    $("#addrow").on("click", function () {
-        var newRow = $("<tr>");
-        var cols = "";
-        cols += '<td><input type="text" class="form-control" name="particulars' + counter + '"/></td>';
-        cols += '<td><input type="text" class="form-control" name="amount' + counter + '"/></td>';
-
-        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
-        newRow.append(cols);
-        $("table.order-list").append(newRow);
-        counter++;
-    });
-
-
-
-    $("table.order-list").on("click", ".ibtnDel", function (event) {
-        $(this).closest("tr").remove();       
-        counter -= 1
-    });
-
-
-
-});
-
-    </script> -->
 
 </body>
 </html>

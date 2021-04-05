@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest Details</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event Details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form action="" th:action="@{/guest}" method="POST" th:object="${guests}">
-        <label>Category:
-            <input type="text" name="category">
-        </label><br><br><br>
-        <label>Name:
-            <input type="text" name="name">
-        </label><br><br><br>
-        <label>Designation:
-            <input type="text" name="designation">
-        </label><br><br><br>
-        <label>Organization:
-            <input type="text" name="organization">
-        </label><br><br><br>
-        <label>About:
-            <textarea cols="50" maxlength="500" name="about"></textarea>
-        </label><br><br><br>
-        <button type="submit">Submit</button>
+    <div class="container" style="text-align: center;">
+        <img src="https://gurunanakcollege.edu.in/uploads/logo/1569478481.png" class="img-fluid" alt="Responsive image">
+        <h3> <b>Create Guest</b></h3>
+      </div>
+    <form action="" th:action="@{/guest}" method="POST" th:object="${guests}" class="container">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Category</label>
+            <input type="text" class="form-control" name="category">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Guest Name</label>
+            <input type="text" class="form-control" name="name">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Designation</label>
+            <input type="text" class="form-control" name="designation">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Organization</label>
+            <input type="text" class="form-control" name="organization">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">About</label>
+            <textarea cols="50" maxlength="500" class="form-control" name="about"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </body>
 </html>
