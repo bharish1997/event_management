@@ -200,36 +200,6 @@
               </button>
             </h5>
           </div>
-
-          <div class="card-header" id="headingFour">
-            <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                <div class="col-md"><b><h4>Invitation</h4></b></div>
-              </button>
-            </h5>
-          </div>
-          <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordionExample">
-            <div class="card-body" style="text-align: center;">
-              <form action="" th:action="@{'/create_invitation?department_name='+${events[0].department_name}+'&amp;venue='+${events[0].venue}+'&amp;event_title='+${events[0].event_title}+'&amp;from_date='+${events[0].from_date}+'&amp;event_id='+${events[0].event_reference_no}}"   enctype="multipart/form-data"  th:object="${invitations}" method="POST">
-                <label> <b>Chief Guest Name</b>
-                <select id="guest_name" name="name" class="form-control">
-                  <option th:each="guest: ${guests}" th:text="${guest.name}" name="name"></option>
-              </select>
-              <br>
-                <div class="form-group">
-                  <label for="exampleFormControlInput1"> <b> Event Time </b></label>
-                  <input type="time" class="form-control" name="time">
-                </div>
-                <br>
-                <div class="form-group">
-                  <label for="exampleFormControlFile1"> <b> Chief Guest Photo </b></label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="cheif_guest_image">
-                </div>
-                <button class="btn btn-primary" type="submit">GENERATE INVITATION</button>
-                        
-          </form>
-            </div>
-          </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <!--Budget Table -->
             <div class="card-body">
@@ -260,55 +230,87 @@
                                 <a th:href="@{/budget_list(event_id=${events[0].event_reference_no})}" >Download Report</a>
                             </div>
                         </div>
+                        
                     </div>
                   </div>
             </div>
-            <!-- Add Budget -->
-            <div class="container">
-        <form action="" th:action="@{/budget_update(event_id=${events[0].event_reference_no})}"  method="POST" th:object="${budgets}">
-        <table id="myTable" class=" table order-list">
-        <thead>
-            <tr>
-                <td>Particular</td>
-                <td>Amount</td>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <tr>
-                <td class="col-sm-4">
-                    <input type="text" name="particulars" class="form-control"/>
-                    
-                </td>
-                <td class="col-sm-3">
-                    <input type="number" name="amount"  class="form-control"/>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4" style="text-align: left;">
-                    <input type="submit" class="btn btn-lg btn-block "  value="Add Row" />
-                </td>
-            </tr>
-            <tr>
-            </tr>
-        </tfoot>
-    </table>
-</form>
-    </div> 
-            
-          </div>
+             <!-- Add Budget -->
+             <div class="container">
+              <form action="" th:action="@{/budget_update(event_id=${events[0].event_reference_no})}"  method="POST" th:object="${budgets}">
+              <table id="myTable" class=" table order-list">
+              <thead>
+                  <tr>
+                      <td>Particular</td>
+                      <td>Amount</td>
+                  </tr>
+              </thead>
+              
+              <tbody>
+                  <tr>
+                      <td class="col-sm-4">
+                          <input type="text" name="particulars" class="form-control"/>
+                          
+                      </td>
+                      <td class="col-sm-3">
+                          <input type="number" name="amount"  class="form-control"/>
+                      </td>
+                  </tr>
+              </tbody>
+              <tfoot>
+                  <tr>
+                      <td colspan="4" style="text-align: left;">
+                          <input type="submit" class="btn btn-lg btn-block "  value="Add Row" />
+                      </td>
+                  </tr>
+                  <tr>
+                  </tr>
+              </tfoot>
+          </table>
+      </form>
+          </div> 
         </div>
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <div class="col-md"><b><h4>Invitation</h4></b></div>
+              </button>
+            </h5>
+          </div>
+          <div  id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body" style="text-align: center;">
+              <form action="" th:action="@{'/create_invitation?department_name='+${events[0].department_name}+'&amp;venue='+${events[0].venue}+'&amp;event_title='+${events[0].event_title}+'&amp;from_date='+${events[0].from_date}+'&amp;event_id='+${events[0].event_reference_no}}"   enctype="multipart/form-data"  th:object="${invitations}" method="POST">
+                <label> <b>Chief Guest Name</b>
+                <select id="guest_name" name="name" class="form-control">
+                  <option th:each="guest: ${guests}" th:text="${guest.name}" name="name"></option>
+              </select>
+              <br>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1"> <b> Event Time </b></label>
+                  <input type="time" class="form-control" name="time">
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="exampleFormControlFile1"> <b> Chief Guest Photo </b></label>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="cheif_guest_image">
+                </div>
+                <button class="btn btn-primary" type="submit">GENERATE INVITATION</button>
+                        
+          </form>
+            </div>
+          </div>
+          
+           
+            
+        
         <div class="card">
-            <div class="card-header" id="headingFour">
+            <div class="card-header" id="headingFive">
               <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                   <div class="col-md"><b><h4>Photos</h4></b></div>
                 </button>
               </h5>
             </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
               <div class="card-body">
                   <span th:each="event : ${events}">
                 <form th:action="@{/details(event_id=${event.event_reference_no})}" method="POST" enctype="multipart/form-data" th:object="${photos}">
